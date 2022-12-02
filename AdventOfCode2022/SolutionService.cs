@@ -1,4 +1,5 @@
 ﻿using AdventOfCode2022.DayOne;
+using AdventOfCode2022.DayTwo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,12 @@ namespace AdventOfCode2022
 
         private Dictionary<AdventDays, ISolution> solutions;
 
-
-
-        private List<string> inputs;
+        private FileHandler fileHandler;
 
         public SolutionService()
         {
             this.inputProcessService = InputProcessService.Instance;
-            InitInputs();
+            this.fileHandler = new FileHandler();
             InitSolutions();
         }
 
@@ -28,21 +27,17 @@ namespace AdventOfCode2022
         {
             Console.WriteLine("-------------------");
             Console.WriteLine(adventDays.ToString());
-            AdventSolution solution = solutions[adventDays].GetSolution(this.inputs);
+            AdventSolution solution = solutions[adventDays].GetSolution(fileHandler.GetInput(adventDays.ToString()));
             Console.WriteLine(solution.ToString());
             Console.WriteLine("-------------------");
-        }
-        private void InitInputs()
-        {
-            FileHandler fileHandler = new FileHandler(AdventDays.DayOne.ToString());
-
-            this.inputs = fileHandler.GetInput();
         }
         private void InitSolutions()
         {
             solutions = new Dictionary<AdventDays, ISolution>();
-            SolutionDescription<List<Elf>> solutionDescription = new SolutionDescription<List<Elf>>(this.inputProcessService.GetElves, new DayOneSolver());
-            solutions.Add(AdventDays.DayOne, solutionDescription);
+            SolutionDescription<List<Elf>> dayOneSolution = new SolutionDescription<List<Elf>>(this.inputProcessService.GetElves, new DayOneSolver());
+            solutions.Add(AdventDays.DayOne, dayOneSolution);
+            SolutionDescription<List<RPS>> dayTwoSolution = new SolutionDescription<List<RPS>>(this.inputProcessService.GetRPSs, new DayTwoSolver());
+            solutions.Add(AdventDays.DayTwo, dayTwoSolution);
         }
     }
 }

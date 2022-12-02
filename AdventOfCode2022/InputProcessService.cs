@@ -1,4 +1,5 @@
 ﻿using AdventOfCode2022.DayOne;
+using AdventOfCode2022.DayTwo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,19 @@ namespace AdventOfCode2022
                 }
             }
             return elves;
+        }
+
+        public List<RPS> GetRPSs(List<string> inputs)
+        {
+            List<RPS> rpsList = new List<RPS>();
+            foreach (var item in inputs)
+            {
+                string[] hand = item.Split(" ");
+                RPS rps = new RPS(hand[0], hand[1]);
+                rpsList.Add(rps);
+            }
+
+            return rpsList;
         }
     }
 }

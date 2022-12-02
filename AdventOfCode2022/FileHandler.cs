@@ -9,20 +9,22 @@ namespace AdventOfCode2022
 {
     internal class FileHandler
     {
+        private static readonly string InputLocation = "InputLocation";
         private string path;
 
 
-        public FileHandler(string dayPart)
+        public FileHandler()
         {
-            string? path = ConfigurationManager.AppSettings.Get(dayPart);
+            string? path = ConfigurationManager.AppSettings.Get(InputLocation);
             if (!String.IsNullOrEmpty(path))
             {
                 this.path = path;
             }
         }
 
-        public List<string> GetInput()
+        public List<string> GetInput(string day)
         {
+            this.path += day + CommonConstant.FileExtension;
             return File.ReadAllLines(path).ToList();
         }
     }

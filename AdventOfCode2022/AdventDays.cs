@@ -8,6 +8,7 @@ namespace AdventOfCode2022
 {
     internal enum AdventDays
     {
-        DayOne
+        DayOne,
+        DayTwo,
     }
 }
