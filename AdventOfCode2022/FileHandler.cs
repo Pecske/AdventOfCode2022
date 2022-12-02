@@ -24,7 +24,7 @@ namespace AdventOfCode2022
 
         public List<string> GetInput(string day)
         {
-            this.path += day + CommonConstant.FileExtension;
+            string path = this.path + day + CommonConstant.FileExtension;
             return File.ReadAllLines(path).ToList();
         }
     }
