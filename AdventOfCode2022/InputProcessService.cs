@@ -1,4 +1,5 @@
-﻿using AdventOfCode2022.DayOne;
+﻿using AdventOfCode2022.DayFour;
+using AdventOfCode2022.DayOne;
 using AdventOfCode2022.DayTwo;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,18 @@ namespace AdventOfCode2022
         public List<string> GetRuckSacks(List<string> inputs)
         {
             return inputs;
+        }
+        public List<SectionCleanUp> GetSections(List<string> inputs)
+        {
+            List<SectionCleanUp> sections = new List<SectionCleanUp>();
+            foreach (var item in inputs)
+            {
+                string[] sectionArray = item.Split(",");
+                SectionCleanUp section = new SectionCleanUp(sectionArray[0], sectionArray[1]);
+                sections.Add(section);
+            }
+
+            return sections;
         }
     }
 }

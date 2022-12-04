@@ -1,4 +1,5 @@
-﻿using AdventOfCode2022.DayOne;
+﻿using AdventOfCode2022.DayFour;
+using AdventOfCode2022.DayOne;
 using AdventOfCode2022.DayThree;
 using AdventOfCode2022.DayTwo;
 using System;
@@ -41,6 +42,8 @@ namespace AdventOfCode2022
             solutions.Add(AdventDays.DayTwo, dayTwoSolution);
             SolutionDescription<List<string>> dayThreeSolution = new SolutionDescription<List<string>>(this.inputProcessService.GetRuckSacks, new DayThreeSolver());
             solutions.Add(AdventDays.DayThree, dayThreeSolution);
+            SolutionDescription<List<SectionCleanUp>> dayFourSolution = new SolutionDescription<List<SectionCleanUp>>(this.inputProcessService.GetSections, new DayFourSolver());
+            solutions.Add(AdventDays.DayFour, dayFourSolution);
         }
     }
 }
