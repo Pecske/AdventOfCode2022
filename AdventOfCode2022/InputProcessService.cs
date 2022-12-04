@@ -51,5 +51,9 @@ namespace AdventOfCode2022
 
             return rpsList;
         }
+        public List<string> GetRuckSacks(List<string> inputs)
+        {
+            return inputs;
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace AdventOfCode2022
     {
         DayOne,
         DayTwo,
+        DayThree,
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AdventOfCode2022.DayOne;
+using AdventOfCode2022.DayThree;
 using AdventOfCode2022.DayTwo;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,8 @@ namespace AdventOfCode2022
             solutions.Add(AdventDays.DayOne, dayOneSolution);
             SolutionDescription<List<RPS>> dayTwoSolution = new SolutionDescription<List<RPS>>(this.inputProcessService.GetRPSs, new DayTwoSolver());
             solutions.Add(AdventDays.DayTwo, dayTwoSolution);
+            SolutionDescription<List<string>> dayThreeSolution = new SolutionDescription<List<string>>(this.inputProcessService.GetRuckSacks, new DayThreeSolver());
+            solutions.Add(AdventDays.DayThree, dayThreeSolution);
         }
     }
 }

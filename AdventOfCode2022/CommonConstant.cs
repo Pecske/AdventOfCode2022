@@ -28,5 +28,11 @@ namespace AdventOfCode2022
             public static readonly string PlayerPaper = "Y";
             public static readonly string PlayerScissor = "Z";
         }
+        public class DayThree
+        {
+            public static readonly string ABC = "abcdefghijklmnopqrstuvwxyz";
+            public static readonly string UpperABC = ABC.ToUpper();
+            public static readonly int UpperBonus = 26;
+        }
     }
 }
