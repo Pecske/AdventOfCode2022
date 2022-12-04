@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.DayOne
 {
-    internal class DayOneSolver : BaseAdventSolver<List<Elf>>
+    internal class CalorieCounting : BaseAdventSolver<List<Elf>>
     {
 
-        public DayOneSolver() : base()
+        public CalorieCounting() : base()
         {
         }
         protected override int SolvePartOne(List<Elf> processedInput)

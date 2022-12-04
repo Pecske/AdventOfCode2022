@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.DayFour
 {
-    internal class DayFourSolver : BaseAdventSolver<List<SectionCleanUp>>
+    internal class CampCleanup : BaseAdventSolver<List<SectionCleanUp>>
     {
         protected override int SolvePartOne(List<SectionCleanUp> processedInput)
         {

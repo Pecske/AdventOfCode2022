@@ -36,13 +36,13 @@ namespace AdventOfCode2022
         private void InitSolutions()
         {
             solutions = new Dictionary<AdventDays, ISolution>();
-            SolutionDescription<List<Elf>> dayOneSolution = new SolutionDescription<List<Elf>>(this.inputProcessService.GetElves, new DayOneSolver());
+            SolutionDescription<List<Elf>> dayOneSolution = new SolutionDescription<List<Elf>>(this.inputProcessService.GetElves, new CalorieCounting());
             solutions.Add(AdventDays.DayOne, dayOneSolution);
-            SolutionDescription<List<RPS>> dayTwoSolution = new SolutionDescription<List<RPS>>(this.inputProcessService.GetRPSs, new DayTwoSolver());
+            SolutionDescription<List<RPS>> dayTwoSolution = new SolutionDescription<List<RPS>>(this.inputProcessService.GetRPSs, new RockPaperScissors());
             solutions.Add(AdventDays.DayTwo, dayTwoSolution);
-            SolutionDescription<List<string>> dayThreeSolution = new SolutionDescription<List<string>>(this.inputProcessService.GetRuckSacks, new DayThreeSolver());
+            SolutionDescription<List<string>> dayThreeSolution = new SolutionDescription<List<string>>(this.inputProcessService.GetRuckSacks, new RucksackReorganization());
             solutions.Add(AdventDays.DayThree, dayThreeSolution);
-            SolutionDescription<List<SectionCleanUp>> dayFourSolution = new SolutionDescription<List<SectionCleanUp>>(this.inputProcessService.GetSections, new DayFourSolver());
+            SolutionDescription<List<SectionCleanUp>> dayFourSolution = new SolutionDescription<List<SectionCleanUp>>(this.inputProcessService.GetSections, new CampCleanup());
             solutions.Add(AdventDays.DayFour, dayFourSolution);
         }
     }

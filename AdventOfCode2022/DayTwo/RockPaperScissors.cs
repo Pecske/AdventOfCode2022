@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.DayTwo
 {
-    internal class DayTwoSolver : BaseAdventSolver<List<RPS>>
+    internal class RockPaperScissors : BaseAdventSolver<List<RPS>>
     {
         private RPSTable table;
-        public DayTwoSolver()
+        public RockPaperScissors()
         {
             this.table = RPSTable.Instance;
         }
