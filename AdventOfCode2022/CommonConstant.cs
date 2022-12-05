@@ -34,5 +34,11 @@ namespace AdventOfCode2022
             public static readonly string UpperABC = ABC.ToUpper();
             public static readonly int UpperBonus = 26;
         }
+        public class DayFive
+        {
+            public static readonly string MoveCommand = "move ";
+            public static readonly string FromCommand = " from ";
+            public static readonly string ToCommand = " to ";
+        }
     }
 }

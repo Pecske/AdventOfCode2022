@@ -1,4 +1,5 @@
-﻿using AdventOfCode2022.DayFour;
+﻿using AdventOfCode2022.DayFive;
+using AdventOfCode2022.DayFour;
 using AdventOfCode2022.DayOne;
 using AdventOfCode2022.DayThree;
 using AdventOfCode2022.DayTwo;
@@ -29,21 +30,23 @@ namespace AdventOfCode2022
         {
             Console.WriteLine("-------------------");
             Console.WriteLine(adventDays.ToString());
-            AdventSolution solution = solutions[adventDays].GetSolution(fileHandler.GetInput(adventDays.ToString()));
-            Console.WriteLine(solution.ToString());
+            string? solution = solutions[adventDays].GetSolution(fileHandler.GetInput(adventDays.ToString())).ToString();
+            Console.WriteLine(solution);
             Console.WriteLine("-------------------");
         }
         private void InitSolutions()
         {
             solutions = new Dictionary<AdventDays, ISolution>();
-            SolutionDescription<List<Elf>> dayOneSolution = new SolutionDescription<List<Elf>>(this.inputProcessService.GetElves, new CalorieCounting());
+            SolutionDescription<List<Elf>, int> dayOneSolution = new SolutionDescription<List<Elf>, int>(this.inputProcessService.GetElves, new CalorieCounting());
             solutions.Add(AdventDays.DayOne, dayOneSolution);
-            SolutionDescription<List<RPS>> dayTwoSolution = new SolutionDescription<List<RPS>>(this.inputProcessService.GetRPSs, new RockPaperScissors());
+            SolutionDescription<List<RPS>, int> dayTwoSolution = new SolutionDescription<List<RPS>, int>(this.inputProcessService.GetRPSs, new RockPaperScissors());
             solutions.Add(AdventDays.DayTwo, dayTwoSolution);
-            SolutionDescription<List<string>> dayThreeSolution = new SolutionDescription<List<string>>(this.inputProcessService.GetRuckSacks, new RucksackReorganization());
+            SolutionDescription<List<string>, int> dayThreeSolution = new SolutionDescription<List<string>, int>(this.inputProcessService.GetRuckSacks, new RucksackReorganization());
             solutions.Add(AdventDays.DayThree, dayThreeSolution);
-            SolutionDescription<List<SectionCleanUp>> dayFourSolution = new SolutionDescription<List<SectionCleanUp>>(this.inputProcessService.GetSections, new CampCleanup());
+            SolutionDescription<List<SectionCleanUp>, int> dayFourSolution = new SolutionDescription<List<SectionCleanUp>, int>(this.inputProcessService.GetSections, new CampCleanup());
             solutions.Add(AdventDays.DayFour, dayFourSolution);
+            SolutionDescription<List<SupplyCommand>, string> dayFiveSolution = new SolutionDescription<List<SupplyCommand>, string>(this.inputProcessService.GetSupplyCommands, new SupplyStacks());
+            solutions.Add(AdventDays.DayFive, dayFiveSolution);
         }
     }
 }

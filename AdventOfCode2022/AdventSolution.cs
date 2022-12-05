@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022
 {
-    internal class AdventSolution
+    internal class AdventSolution<T>
     {
-        private int partOne;
+        private T partOne;
 
-        private int partTwo;
+        private T partTwo;
 
-        public AdventSolution(int partOne, int partTwo)
+        public AdventSolution(T partOne, T partTwo)
         {
             this.partOne = partOne;
             this.partTwo = partTwo;

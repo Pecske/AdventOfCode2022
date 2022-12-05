@@ -8,6 +8,6 @@ namespace AdventOfCode2022
 {
     internal interface ISolution
     {
-        AdventSolution GetSolution(List<string> inputs);
+        AdventSolution<object> GetSolution(List<string> inputs);
     }
 }

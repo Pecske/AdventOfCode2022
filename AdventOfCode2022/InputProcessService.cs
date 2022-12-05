@@ -1,4 +1,5 @@
-﻿using AdventOfCode2022.DayFour;
+﻿using AdventOfCode2022.DayFive;
+using AdventOfCode2022.DayFour;
 using AdventOfCode2022.DayOne;
 using AdventOfCode2022.DayTwo;
 using System;
@@ -67,6 +68,22 @@ namespace AdventOfCode2022
             }
 
             return sections;
+        }
+        public List<SupplyCommand> GetSupplyCommands(List<string> inputs)
+        {
+            List<SupplyCommand> commands = new List<SupplyCommand>();
+            return inputs.Select(item => SplitSupplyCommandInput(item))
+                         .Select(item => new SupplyCommand(item[0], item[1], item[2]))
+                         .ToList();
+        }
+
+        private int[] SplitSupplyCommandInput(string commandString)
+        {
+            string moveCommandSplit = commandString.Substring(CommonConstant.DayFive.MoveCommand.Length);
+            string[] fromSplit = moveCommandSplit.Split(CommonConstant.DayFive.FromCommand);
+            string[] toSplit = fromSplit[1].Split(CommonConstant.DayFive.ToCommand);
+            int[] result = { int.Parse(fromSplit[0]), int.Parse(toSplit[0]), int.Parse(toSplit[1]) };
+            return result;
         }
     }
 }

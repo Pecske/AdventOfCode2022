@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.DayOne
 {
-    internal class CalorieCounting : BaseAdventSolver<List<Elf>>
+    internal class CalorieCounting : BaseAdventSolver<List<Elf>, int>
     {
 
         public CalorieCounting() : base()

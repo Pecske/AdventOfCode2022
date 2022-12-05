@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.DayTwo
 {
-    internal class RockPaperScissors : BaseAdventSolver<List<RPS>>
+    internal class RockPaperScissors : BaseAdventSolver<List<RPS>,int>
     {
         private RPSTable table;
         public RockPaperScissors()
