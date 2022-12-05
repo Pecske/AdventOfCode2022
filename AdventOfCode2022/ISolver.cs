@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022
 {
-    internal interface ISolution
+    internal interface ISolver
     {
         AdventSolution<object> GetSolution(List<string> inputs);
     }

@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.DayTwo
 {
-    internal class RockPaperScissors : BaseAdventSolver<List<RPS>,int>
+    internal class RockPaperScissors : BaseAdventSolver<List<RPS>, int>
     {
         private RPSTable table;
         public RockPaperScissors()
         {
             this.table = RPSTable.Instance;
+        }
+
+        protected override void SetInputProcessor()
+        {
+            this.InputProcessor = this.InputProcessService.GetRPSs;
         }
 
         protected override int SolvePartOne(List<RPS> processedInput)

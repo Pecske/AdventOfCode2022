@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.DayFour
 {
-    internal class CampCleanup : BaseAdventSolver<List<SectionCleanUp>,int>
+    internal class CampCleanup : BaseAdventSolver<List<SectionCleanUp>, int>
     {
+        protected override void SetInputProcessor()
+        {
+            this.InputProcessor = this.InputProcessService.GetSections;
+        }
+
         protected override int SolvePartOne(List<SectionCleanUp> processedInput)
         {
             return processedInput.Where(item => isAllItemInList(item.FirstElfSequence, item.SecondElfSequence)

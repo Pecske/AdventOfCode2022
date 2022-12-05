@@ -12,6 +12,12 @@ namespace AdventOfCode2022.DayOne
         public CalorieCounting() : base()
         {
         }
+
+        protected override void SetInputProcessor()
+        {
+            this.InputProcessor = this.InputProcessService.GetElves;
+        }
+
         protected override int SolvePartOne(List<Elf> processedInput)
         {
             return processedInput.Select(item => item.GetSumCalories()).Max();

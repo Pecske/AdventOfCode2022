@@ -14,6 +14,10 @@ namespace AdventOfCode2022.DayFive
         {
             InitCrates();
         }
+        protected override void SetInputProcessor()
+        {
+            this.InputProcessor = this.InputProcessService.GetSupplyCommands;
+        }
 
         protected override string SolvePartOne(List<SupplyCommand> processedInput)
         {

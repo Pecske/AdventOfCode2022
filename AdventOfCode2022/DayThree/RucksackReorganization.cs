@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.DayThree
 {
-    internal class RucksackReorganization : BaseAdventSolver<List<string>,int>
+    internal class RucksackReorganization : BaseAdventSolver<List<string>, int>
     {
+        protected override void SetInputProcessor()
+        {
+            this.InputProcessor = this.InputProcessService.GetRuckSacks;
+        }
+
         protected override int SolvePartOne(List<string> processedInput)
         {
             int solution = 0;

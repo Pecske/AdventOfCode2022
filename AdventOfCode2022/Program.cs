@@ -1,11 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AdventOfCode2022;
 
-SolutionService solutionPrinter = new SolutionService();
+SolverService solutionService = SolverService.Instance;
 
-//solutionPrinter.PrintSolution(AdventDays.DayOne);
-//solutionPrinter.PrintSolution(AdventDays.DayTwo);
-//solutionPrinter.PrintSolution(AdventDays.DayThree);
-//solutionPrinter.PrintSolution(AdventDays.DayFour);
-solutionPrinter.PrintSolution(AdventDays.DayFive);
+solutionService.PrintSolution(AdventDays.DayOne);
+solutionService.PrintSolution(AdventDays.DayTwo);
+solutionService.PrintSolution(AdventDays.DayThree);
+solutionService.PrintSolution(AdventDays.DayFour);
+solutionService.PrintSolution(AdventDays.DayFive);
 
