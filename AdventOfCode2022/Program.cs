@@ -5,7 +5,7 @@ using System.Configuration;
 string? path = ConfigurationManager.AppSettings.Get(CommonConstant.InputLocation);
 SolverService solutionService = SolverService.GetInstance(path);
 
-PrintSolution(AdventDays.DayOne);
+//PrintSolution(AdventDays.DayOne);
 //PrintSolution(AdventDays.DayTwo);
 //PrintSolution(AdventDays.DayThree);
 //PrintSolution(AdventDays.DayFour);

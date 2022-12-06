@@ -46,11 +46,11 @@ namespace AdventOfCode2022.DayThree
         {
             if (!Char.IsUpper(item))
             {
-                return (CommonConstant.DayThree.ABC.IndexOf(item) + 1);
+                return (CommonConstant.ABC.IndexOf(item) + 1);
             }
             else
             {
-                return (CommonConstant.DayThree.UpperABC.IndexOf(item) + 1 + CommonConstant.DayThree.UpperBonus);
+                return (CommonConstant.UpperABC.IndexOf(item) + 1 + CommonConstant.DayThree.UpperBonus);
             }
         }
         private int GetScoreInSackFromContainer(string sack, List<string> container)

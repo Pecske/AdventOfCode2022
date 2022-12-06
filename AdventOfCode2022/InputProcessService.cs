@@ -70,12 +70,48 @@ namespace AdventOfCode2022
 
             return sections;
         }
-        public List<SupplyCommand> GetSupplyCommands(List<string> inputs)
+        public Crate GetSupplyCommands(List<string> inputs)
         {
+            Dictionary<int, List<string>> crateContainer = new Dictionary<int, List<string>>();
             List<SupplyCommand> commands = new List<SupplyCommand>();
-            return inputs.Select(item => SplitSupplyCommandInput(item))
-                         .Select(item => new SupplyCommand(item[0], item[1], item[2]))
-                         .ToList();
+            bool cratesReady = false;
+            foreach (var item in inputs)
+            {
+                string numbers = item.Replace(" ", String.Empty);
+                if (numbers.All(item => CommonConstant.Numbers.Contains(item)))
+                {
+                    cratesReady = true;
+                }
+                for (int i = 0; i < item.Length && !cratesReady; i++)
+                {
+                    string currentItem = item[i].ToString();
+                    if (CommonConstant.UpperABC.Contains(currentItem))
+                    {
+                        int containerNumber = (i / 4) + 1;
+                        try
+                        {
+                            List<string> tempList = crateContainer[containerNumber];
+                        }
+                        catch (Exception)
+                        {
+                            crateContainer.Add(containerNumber, new List<string>());
+                        }
+                        finally
+                        {
+                            crateContainer[containerNumber].Add(currentItem);
+                        }
+                    }
+                }
+                if (cratesReady && item.Contains(CommonConstant.DayFive.MoveCommand))
+                {
+                    int[] commandInputs = SplitSupplyCommandInput(item);
+                    commands.Add(new SupplyCommand(commandInputs[0], commandInputs[1], commandInputs[2]));
+                }
+            }
+            /* List<SupplyCommand> commands = inputs.Select(item => SplitSupplyCommandInput(item))
+                          .Select(item => new SupplyCommand(item[0], item[1], item[2]))
+                          .ToList();*/
+            return new Crate(crateContainer, commands);
         }
 
         private int[] SplitSupplyCommandInput(string commandString)

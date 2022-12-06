@@ -10,6 +10,11 @@ namespace AdventOfCode2022
     {
         public static readonly string FileExtension = ".txt";
         public static readonly string InputLocation = "InputLocation";
+        public static readonly string ABC = "abcdefghijklmnopqrstuvwxyz";
+        public static readonly string UpperABC = ABC.ToUpper();
+        public static readonly string Numbers = "1234567890";
+
+
         public class DayOne
         {
             public static readonly int TopElfCount = 3;
@@ -31,8 +36,6 @@ namespace AdventOfCode2022
         }
         public class DayThree
         {
-            public static readonly string ABC = "abcdefghijklmnopqrstuvwxyz";
-            public static readonly string UpperABC = ABC.ToUpper();
             public static readonly int UpperBonus = 26;
         }
         public class DayFive
