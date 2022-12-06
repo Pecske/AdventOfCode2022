@@ -2,13 +2,14 @@
 using AdventOfCode2022.DayFour;
 using AdventOfCode2022.DayOne;
 using AdventOfCode2022.DayTwo;
+using AdventOfCode2022.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022
+namespace AdventOfCode2022.Service
 {
     internal class InputProcessService
     {
@@ -23,7 +24,7 @@ namespace AdventOfCode2022
             for (int i = 0; i < inputs.Count; i++)
             {
                 string calorieInput = inputs[i];
-                if (!String.IsNullOrEmpty(calorieInput))
+                if (!string.IsNullOrEmpty(calorieInput))
                 {
                     int calorie;
                     if (int.TryParse(calorieInput, out calorie))
@@ -31,7 +32,7 @@ namespace AdventOfCode2022
                         calories.Add(calorie);
                     }
                 }
-                if (String.IsNullOrEmpty(calorieInput) || i == inputs.Count - 1)
+                if (string.IsNullOrEmpty(calorieInput) || i == inputs.Count - 1)
                 {
                     Elf newElf = new Elf(newElfCounter, calories);
                     elves.Add(newElf);
@@ -77,7 +78,7 @@ namespace AdventOfCode2022
             bool cratesReady = false;
             foreach (var item in inputs)
             {
-                string numbers = item.Replace(" ", String.Empty);
+                string numbers = item.Replace(" ", string.Empty);
                 if (numbers.All(item => CommonConstant.Numbers.Contains(item)))
                 {
                     cratesReady = true;
@@ -87,7 +88,7 @@ namespace AdventOfCode2022
                     string currentItem = item[i].ToString();
                     if (CommonConstant.UpperABC.Contains(currentItem))
                     {
-                        int containerNumber = (i / 4) + 1;
+                        int containerNumber = i / 4 + 1;
                         try
                         {
                             List<string> tempList = crateContainer[containerNumber];

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using AdventOfCode2022.Utils;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022
+namespace AdventOfCode2022.Service
 {
     internal class FileHandler
     {
@@ -15,7 +16,7 @@ namespace AdventOfCode2022
         public FileHandler(string path)
         {
             //string? path = ConfigurationManager.AppSettings.Get(inputLocation);
-            if (!String.IsNullOrEmpty(path))
+            if (!string.IsNullOrEmpty(path))
             {
                 this.path = path;
             }

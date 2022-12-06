@@ -1,6 +1,8 @@
 namespace AdventOfCodeTest
 {
-    using AdventOfCode2022;
+    using AdventOfCode2022.DTO;
+    using AdventOfCode2022.Service;
+    using AdventOfCode2022.Utils;
     using System.Configuration;
 
     [TestClass]

@@ -4,13 +4,15 @@ using AdventOfCode2022.DayOne;
 using AdventOfCode2022.DaySix;
 using AdventOfCode2022.DayThree;
 using AdventOfCode2022.DayTwo;
+using AdventOfCode2022.DTO;
+using AdventOfCode2022.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022
+namespace AdventOfCode2022.Service
 {
     public class SolverService
     {
@@ -31,12 +33,12 @@ namespace AdventOfCode2022
 
         private SolverService(string inputLocation)
         {
-            this.fileHandler = new FileHandler(inputLocation);
+            fileHandler = new FileHandler(inputLocation);
             InitSolutions();
         }
         public AdventSolution<object> GetAdventSolution(AdventDays advent)
         {
-            return solutions[advent].GetSolution(this.fileHandler.GetInput(advent.ToString()));
+            return solutions[advent].GetSolution(fileHandler.GetInput(advent.ToString()));
         }
         private void InitSolutions()
         {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022
+namespace AdventOfCode2022.DTO
 {
     public class AdventSolution<T>
     {
@@ -13,13 +13,13 @@ namespace AdventOfCode2022
 
         public AdventSolution(T partOne, T partTwo)
         {
-            this.PartOne = partOne;
-            this.PartTwo = partTwo;
+            PartOne = partOne;
+            PartTwo = partTwo;
         }
 
         public override string? ToString()
         {
-            return $"Part One:\t{this.PartOne}\nPart Two:\t{this.PartTwo}";
+            return $"Part One:\t{PartOne}\nPart Two:\t{PartTwo}";
         }
     }
 }

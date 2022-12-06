@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AdventOfCode2022.DTO;
+using AdventOfCode2022.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022
+namespace AdventOfCode2022.Utils
 {
     internal abstract class BaseAdventSolver<T, U> : ISolver
     {
@@ -15,7 +17,7 @@ namespace AdventOfCode2022
 
         public BaseAdventSolver()
         {
-            this.InputProcessService = InputProcessService.Instance;
+            InputProcessService = InputProcessService.Instance;
             SetInputProcessor();
         }
         public AdventSolution<object> GetSolution(List<string> inputs)

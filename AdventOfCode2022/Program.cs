@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using AdventOfCode2022;
+using AdventOfCode2022.Service;
+using AdventOfCode2022.Utils;
 using System.Configuration;
 
 string? path = ConfigurationManager.AppSettings.Get(CommonConstant.InputLocation);
