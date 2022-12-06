@@ -12,28 +12,31 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022
 {
-    internal class SolverService
+    public class SolverService
     {
         private static SolverService instance;
-        public static SolverService Instance { get { if (instance == null) { instance = new SolverService(); } return instance; } }
+
+        public static SolverService GetInstance(string inputLocation)
+        {
+            if (instance == null)
+            {
+                instance = new SolverService(inputLocation);
+            }
+            return instance;
+        }
 
         private Dictionary<AdventDays, ISolver> solutions;
 
         private FileHandler fileHandler;
 
-        private SolverService()
+        private SolverService(string inputLocation)
         {
-            this.fileHandler = new FileHandler();
+            this.fileHandler = new FileHandler(inputLocation);
             InitSolutions();
         }
-
-        public void PrintSolution(AdventDays adventDays)
+        public AdventSolution<object> GetAdventSolution(AdventDays advent)
         {
-            Console.WriteLine("-------------------");
-            Console.WriteLine(adventDays.ToString());
-            string? solution = solutions[adventDays].GetSolution(fileHandler.GetInput(adventDays.ToString())).ToString();
-            Console.WriteLine(solution);
-            Console.WriteLine("-------------------");
+            return solutions[advent].GetSolution(this.fileHandler.GetInput(advent.ToString()));
         }
         private void InitSolutions()
         {

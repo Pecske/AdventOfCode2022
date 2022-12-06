@@ -20,17 +20,18 @@ namespace AdventOfCode2022
             List<Elf> elves = new List<Elf>();
             int newElfCounter = 0;
             List<int> calories = new List<int>();
-            foreach (var item in inputs)
+            for (int i = 0; i < inputs.Count; i++)
             {
-                if (!String.IsNullOrEmpty(item))
+                string calorieInput = inputs[i];
+                if (!String.IsNullOrEmpty(calorieInput))
                 {
                     int calorie;
-                    if (int.TryParse(item, out calorie))
+                    if (int.TryParse(calorieInput, out calorie))
                     {
                         calories.Add(calorie);
                     }
                 }
-                else
+                if (String.IsNullOrEmpty(calorieInput) || i == inputs.Count - 1)
                 {
                     Elf newElf = new Elf(newElfCounter, calories);
                     elves.Add(newElf);

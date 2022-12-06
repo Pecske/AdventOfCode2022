@@ -9,13 +9,12 @@ namespace AdventOfCode2022
 {
     internal class FileHandler
     {
-        private static readonly string InputLocation = "InputLocation";
         private string path;
 
 
-        public FileHandler()
+        public FileHandler(string path)
         {
-            string? path = ConfigurationManager.AppSettings.Get(InputLocation);
+            //string? path = ConfigurationManager.AppSettings.Get(inputLocation);
             if (!String.IsNullOrEmpty(path))
             {
                 this.path = path;

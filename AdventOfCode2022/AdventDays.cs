@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022
 {
-    internal enum AdventDays
+    public enum AdventDays
     {
         DayOne,
         DayTwo,

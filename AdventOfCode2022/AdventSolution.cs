@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022
 {
-    internal class AdventSolution<T>
+    public class AdventSolution<T>
     {
-        private T partOne;
-
-        private T partTwo;
+        public T PartOne { get; private set; }
+        public T PartTwo { get; private set; }
 
         public AdventSolution(T partOne, T partTwo)
         {
-            this.partOne = partOne;
-            this.partTwo = partTwo;
+            this.PartOne = partOne;
+            this.PartTwo = partTwo;
         }
 
         public override string? ToString()
         {
-            return $"Part One:\t{this.partOne}\nPart Two:\t{this.partTwo}";
+            return $"Part One:\t{this.PartOne}\nPart Two:\t{this.PartTwo}";
         }
     }
 }

@@ -9,6 +9,7 @@ namespace AdventOfCode2022
     internal class CommonConstant
     {
         public static readonly string FileExtension = ".txt";
+        public static readonly string InputLocation = "InputLocation";
         public class DayOne
         {
             public static readonly int TopElfCount = 3;
