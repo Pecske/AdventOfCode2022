@@ -1,6 +1,7 @@
 ﻿using AdventOfCode2022.DayFive;
 using AdventOfCode2022.DayFour;
 using AdventOfCode2022.DayOne;
+using AdventOfCode2022.DaySix;
 using AdventOfCode2022.DayThree;
 using AdventOfCode2022.DayTwo;
 using System;
@@ -42,6 +43,7 @@ namespace AdventOfCode2022
             solutions.Add(AdventDays.DayThree, new RucksackReorganization());
             solutions.Add(AdventDays.DayFour, new CampCleanup());
             solutions.Add(AdventDays.DayFive, new SupplyStacks());
+            solutions.Add(AdventDays.DaySix, new TuningTrouble());
         }
     }
 }

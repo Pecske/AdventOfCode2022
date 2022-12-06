@@ -10,7 +10,7 @@ namespace AdventOfCode2022.DayThree
     {
         protected override void SetInputProcessor()
         {
-            this.InputProcessor = this.InputProcessService.GetRuckSacks;
+            this.InputProcessor = this.InputProcessService.GetInputs;
         }
 
         protected override int SolvePartOne(List<string> processedInput)

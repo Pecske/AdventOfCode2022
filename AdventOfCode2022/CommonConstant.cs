@@ -40,5 +40,10 @@ namespace AdventOfCode2022
             public static readonly string FromCommand = " from ";
             public static readonly string ToCommand = " to ";
         }
+        public class DaySix
+        {
+            public static readonly int PacketMarker = 4;
+            public static readonly int MessageMarker = 14;
+        }
     }
 }
