@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022.DayThree
+namespace AdventOfCode2022.DailySolutions.DayThree
 {
     internal class RucksackReorganization : BaseAdventSolver<List<string>, int>
     {

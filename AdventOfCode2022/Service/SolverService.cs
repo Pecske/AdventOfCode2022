@@ -1,16 +1,19 @@
-﻿using AdventOfCode2022.DayFive;
-using AdventOfCode2022.DayFour;
-using AdventOfCode2022.DayOne;
-using AdventOfCode2022.DaySix;
-using AdventOfCode2022.DayThree;
-using AdventOfCode2022.DayTwo;
+﻿using AdventOfCode2022.DailySolutions;
 using AdventOfCode2022.DTO;
 using AdventOfCode2022.Utils;
+using AdventOfCode2022;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdventOfCode2022.DailySolutions.DayOne;
+using AdventOfCode2022.DailySolutions.DayTwo;
+using AdventOfCode2022.DailySolutions.DayThree;
+using AdventOfCode2022.DailySolutions.DayFour;
+using AdventOfCode2022.DailySolutions.DayFive;
+using AdventOfCode2022.DailySolutions.DaySix;
+using AdventOfCode2022.DailySolutions.DaySeven;
 
 namespace AdventOfCode2022.Service
 {
@@ -49,6 +52,7 @@ namespace AdventOfCode2022.Service
             solutions.Add(AdventDays.DayFour, new CampCleanup());
             solutions.Add(AdventDays.DayFive, new SupplyStacks());
             solutions.Add(AdventDays.DaySix, new TuningTrouble());
+            solutions.Add(AdventDays.DaySeven, new NoSpaceLeftOnDevice());
         }
     }
 }

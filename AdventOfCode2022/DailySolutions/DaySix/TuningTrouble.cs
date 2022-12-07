@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022.DaySix
+namespace AdventOfCode2022.DailySolutions.DaySix
 {
     internal class TuningTrouble : BaseAdventSolver<List<string>, int>
     {

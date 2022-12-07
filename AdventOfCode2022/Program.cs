@@ -11,7 +11,8 @@ SolverService solutionService = SolverService.GetInstance(path);
 //PrintSolution(AdventDays.DayThree);
 //PrintSolution(AdventDays.DayFour);
 //PrintSolution(AdventDays.DayFive);
-PrintSolution(AdventDays.DaySix);
+//PrintSolution(AdventDays.DaySix);
+PrintSolution(AdventDays.DaySeven);
 
 void PrintSolution(AdventDays adventDays)
 {

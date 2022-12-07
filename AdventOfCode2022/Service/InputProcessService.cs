@@ -1,7 +1,8 @@
-﻿using AdventOfCode2022.DayFive;
-using AdventOfCode2022.DayFour;
-using AdventOfCode2022.DayOne;
-using AdventOfCode2022.DayTwo;
+﻿using AdventOfCode2022.DailySolutions.DayFive;
+using AdventOfCode2022.DailySolutions.DayFour;
+using AdventOfCode2022.DailySolutions.DayOne;
+using AdventOfCode2022.DailySolutions.DaySeven;
+using AdventOfCode2022.DailySolutions.DayTwo;
 using AdventOfCode2022.Utils;
 using System;
 using System.Collections.Generic;
@@ -109,10 +110,69 @@ namespace AdventOfCode2022.Service
                     commands.Add(new SupplyCommand(commandInputs[0], commandInputs[1], commandInputs[2]));
                 }
             }
-            /* List<SupplyCommand> commands = inputs.Select(item => SplitSupplyCommandInput(item))
-                          .Select(item => new SupplyCommand(item[0], item[1], item[2]))
-                          .ToList();*/
             return new Crate(crateContainer, commands);
+        }
+
+        public Dictionary<string, FileDirectory> GetFileSystem(List<string> inputs)
+        {
+            Dictionary<string, FileDirectory> result = new Dictionary<string, FileDirectory>();
+
+            Stack<string> directoryHistory = new Stack<string>();
+
+            foreach (var item in inputs)
+            {
+                if (item.Contains(CommonConstant.DaySeven.ChangeDirectory)
+                    && !item.Contains(CommonConstant.DaySeven.JumpOut))
+                {
+                    string newDirectory = item.Replace(CommonConstant.DaySeven.ChangeDirectory, String.Empty).Replace(" ", String.Empty);
+                    directoryHistory.Push(newDirectory);
+                    string dirPath = directoryHistory.Aggregate((prev, current) => prev + current);
+                    try
+                    {
+                        FileDirectory fileDirectory = result[dirPath];
+                    }
+                    catch (Exception)
+                    {
+                        FileDirectory currentDirectory = new FileDirectory(newDirectory, new List<FileDirectory>(), new List<FileDescription>());
+                        result.Add(dirPath, currentDirectory);
+                    }
+                }
+                else if (item.Contains(CommonConstant.DaySeven.Directory))
+                {
+                    string dirName = item.Replace(CommonConstant.DaySeven.Directory, String.Empty).Replace(" ", String.Empty);
+                    string currentDirPath = directoryHistory.Aggregate((prev, current) => prev + current);
+                    string newDirPath = dirName + directoryHistory.Aggregate((prev, current) => prev + current);
+                    FileDirectory subDirectory = new FileDirectory(currentDirPath, new List<FileDirectory>(), new List<FileDescription>());
+                    try
+                    {
+                        FileDirectory fileDirectory = result[newDirPath];
+                    }
+                    catch (Exception)
+                    {
+                        result.Add(newDirPath, subDirectory);
+                    }
+                    finally
+                    {
+                        FileDirectory directory = result[currentDirPath];
+                        directory.SubDirectories.Add(subDirectory);
+                    }
+                }
+                else if (item.Contains(CommonConstant.DaySeven.JumpOut))
+                {
+                    directoryHistory.Pop();
+                }
+                else if (!item.Contains(CommonConstant.DaySeven.ChangeDirectory)
+                    && !item.Contains(CommonConstant.DaySeven.Directory)
+                    && !item.Contains(CommonConstant.DaySeven.ListDirectory))
+                {
+                    string[] fileInput = item.Split(" ");
+                    FileDescription fileDescription = new FileDescription(int.Parse(fileInput[0]), fileInput[1]);
+                    string dirPath = directoryHistory.Aggregate((prev, current) => prev + current);
+                    FileDirectory directory = result[dirPath];
+                    directory.FileDescriptions.Add(fileDescription);
+                }
+            }
+            return result;
         }
 
         private int[] SplitSupplyCommandInput(string commandString)

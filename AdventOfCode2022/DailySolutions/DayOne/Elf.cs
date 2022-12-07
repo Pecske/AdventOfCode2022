@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022.DayOne
+namespace AdventOfCode2022.DailySolutions.DayOne
 {
     internal class Elf
     {

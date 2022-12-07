@@ -19,43 +19,50 @@ namespace AdventOfCodeTest
         public void TestDayOneExampleSolution()
         {
             AdventSolution<object> solution = this.solverService.GetAdventSolution(AdventDays.DayOne);
-            Assert.AreEqual(solution.PartOne, 24000);
-            Assert.AreEqual(solution.PartTwo, 45000);
+            Assert.AreEqual(24000,solution.PartOne );
+            Assert.AreEqual(45000,solution.PartTwo );
         }
         [TestMethod]
         public void TestDayTwoExampleSolution()
         {
             AdventSolution<object> solution = this.solverService.GetAdventSolution(AdventDays.DayTwo);
-            Assert.AreEqual(solution.PartOne, 15);
-            Assert.AreEqual(solution.PartTwo, 12);
+            Assert.AreEqual(15,solution.PartOne);
+            Assert.AreEqual(12,solution.PartTwo);
         }
         [TestMethod]
         public void TestDayThreeExampleSolution()
         {
             AdventSolution<object> solution = this.solverService.GetAdventSolution(AdventDays.DayThree);
-            Assert.AreEqual(solution.PartOne, 157);
-            Assert.AreEqual(solution.PartTwo, 70);
+            Assert.AreEqual(157,solution.PartOne);
+            Assert.AreEqual(70,solution.PartTwo);
         }
         [TestMethod]
         public void TestDayFourExampleSolution()
         {
             AdventSolution<object> solution = this.solverService.GetAdventSolution(AdventDays.DayFour);
-            Assert.AreEqual(solution.PartOne, 2);
-            Assert.AreEqual(solution.PartTwo, 4);
+            Assert.AreEqual(2,solution.PartOne );
+            Assert.AreEqual(4,solution.PartTwo );
         }
         [TestMethod]
         public void TestDayFiveExampleSolution()
         {
             AdventSolution<object> solution = this.solverService.GetAdventSolution(AdventDays.DayFive);
-            Assert.AreEqual(solution.PartOne, "CMZ");
-            Assert.AreEqual(solution.PartTwo, "MCD");
+            Assert.AreEqual("CMZ",solution.PartOne);
+            Assert.AreEqual("MCD",solution.PartTwo);
         }
         [TestMethod]
         public void TestDaySixExampleSolution()
         {
             AdventSolution<object> solution = this.solverService.GetAdventSolution(AdventDays.DaySix);
-            Assert.AreEqual(solution.PartOne, 7);
-            Assert.AreEqual(solution.PartTwo, 19);
+            Assert.AreEqual(7, solution.PartOne);
+            Assert.AreEqual(19, solution.PartTwo);
+        }
+        [TestMethod]
+        public void TestDaySevenExampleSolution()
+        {
+            AdventSolution<object> solution = this.solverService.GetAdventSolution(AdventDays.DaySeven);
+            Assert.AreEqual(95437, solution.PartOne);
+            Assert.AreEqual(24933642, solution.PartTwo);
         }
     }
 }

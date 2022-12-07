@@ -49,5 +49,16 @@ namespace AdventOfCode2022.Utils
             public static readonly int PacketMarker = 4;
             public static readonly int MessageMarker = 14;
         }
+        public class DaySeven
+        {
+            public static readonly string ChangeDirectory = "$ cd ";
+            public static readonly string JumpOut = "..";
+            public static readonly string Directory = "dir ";
+            public static readonly string ListDirectory = "$ ls";
+            public static readonly int MaximumDirectorySize = 100000;
+            public static readonly int MaximumFileSystemSize = 70000000;
+            public static readonly int RequiredUnusedSize = 30000000;
+            public static readonly string RootDirectory = "/";
+        }
     }
 }

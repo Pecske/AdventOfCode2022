@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022.DayFive
+namespace AdventOfCode2022.DailySolutions.DayFive
 {
     internal class SupplyStacks : BaseAdventSolver<Crate, string>
     {

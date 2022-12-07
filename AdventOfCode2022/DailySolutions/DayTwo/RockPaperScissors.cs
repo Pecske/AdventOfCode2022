@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022.DayTwo
+namespace AdventOfCode2022.DailySolutions.DayTwo
 {
     internal class RockPaperScissors : BaseAdventSolver<List<RPS>, int>
     {

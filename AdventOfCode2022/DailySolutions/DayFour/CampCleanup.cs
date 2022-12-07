@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022.DayFour
+namespace AdventOfCode2022.DailySolutions.DayFour
 {
     internal class CampCleanup : BaseAdventSolver<List<SectionCleanUp>, int>
     {
