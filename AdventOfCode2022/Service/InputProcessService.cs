@@ -116,7 +116,6 @@ namespace AdventOfCode2022.Service
         public Dictionary<string, FileDirectory> GetFileSystem(List<string> inputs)
         {
             Dictionary<string, FileDirectory> result = new Dictionary<string, FileDirectory>();
-
             Stack<string> directoryHistory = new Stack<string>();
 
             foreach (var item in inputs)
@@ -124,38 +123,11 @@ namespace AdventOfCode2022.Service
                 if (item.Contains(CommonConstant.DaySeven.ChangeDirectory)
                     && !item.Contains(CommonConstant.DaySeven.JumpOut))
                 {
-                    string newDirectory = item.Replace(CommonConstant.DaySeven.ChangeDirectory, String.Empty).Replace(" ", String.Empty);
-                    directoryHistory.Push(newDirectory);
-                    string dirPath = directoryHistory.Aggregate((prev, current) => prev + current);
-                    try
-                    {
-                        FileDirectory fileDirectory = result[dirPath];
-                    }
-                    catch (Exception)
-                    {
-                        FileDirectory currentDirectory = new FileDirectory(newDirectory, new List<FileDirectory>(), new List<FileDescription>());
-                        result.Add(dirPath, currentDirectory);
-                    }
+                    string newDirectory = AddNewDirectory(result, directoryHistory, item);
                 }
                 else if (item.Contains(CommonConstant.DaySeven.Directory))
                 {
-                    string dirName = item.Replace(CommonConstant.DaySeven.Directory, String.Empty).Replace(" ", String.Empty);
-                    string currentDirPath = directoryHistory.Aggregate((prev, current) => prev + current);
-                    string newDirPath = dirName + directoryHistory.Aggregate((prev, current) => prev + current);
-                    FileDirectory subDirectory = new FileDirectory(currentDirPath, new List<FileDirectory>(), new List<FileDescription>());
-                    try
-                    {
-                        FileDirectory fileDirectory = result[newDirPath];
-                    }
-                    catch (Exception)
-                    {
-                        result.Add(newDirPath, subDirectory);
-                    }
-                    finally
-                    {
-                        FileDirectory directory = result[currentDirPath];
-                        directory.SubDirectories.Add(subDirectory);
-                    }
+                    AddSubDirectory(result, directoryHistory, item);
                 }
                 else if (item.Contains(CommonConstant.DaySeven.JumpOut))
                 {
@@ -167,12 +139,50 @@ namespace AdventOfCode2022.Service
                 {
                     string[] fileInput = item.Split(" ");
                     FileDescription fileDescription = new FileDescription(int.Parse(fileInput[0]), fileInput[1]);
-                    string dirPath = directoryHistory.Aggregate((prev, current) => prev + current);
+                    string dirPath = GetDirectoryPathFromHistory(directoryHistory);
                     FileDirectory directory = result[dirPath];
                     directory.FileDescriptions.Add(fileDescription);
                 }
             }
             return result;
+        }
+        private string AddNewDirectory(Dictionary<string, FileDirectory> fileSystem, Stack<string> directoryHistory, string directoryInput)
+        {
+            string dirName = GetDirNameFromInput(directoryInput, CommonConstant.DaySeven.ChangeDirectory);
+            directoryHistory.Push(dirName);
+            string dirPath = GetDirectoryPathFromHistory(directoryHistory);
+            FileDirectory currentDirectory = new FileDirectory(dirName, new List<FileDirectory>(), new List<FileDescription>());
+            AddDirectory(fileSystem, dirPath, currentDirectory);
+            return dirName;
+        }
+        private void AddSubDirectory(Dictionary<string, FileDirectory> fileSystem, Stack<string> directoryHistory, string directoryInput)
+        {
+            string dirName = GetDirNameFromInput(directoryInput, CommonConstant.DaySeven.Directory);
+            string currentDirPath = GetDirectoryPathFromHistory(directoryHistory);
+            string newDirPath = dirName + currentDirPath;
+            FileDirectory subDirectory = new FileDirectory(currentDirPath, new List<FileDirectory>(), new List<FileDescription>());
+            AddDirectory(fileSystem, newDirPath, subDirectory);
+            FileDirectory currentDirectory = fileSystem[currentDirPath];
+            currentDirectory.SubDirectories.Add(subDirectory);
+        }
+        private void AddDirectory(Dictionary<string, FileDirectory> fileSystem, string path, FileDirectory newDirectory)
+        {
+            try
+            {
+                FileDirectory fileDirectory = fileSystem[path];
+            }
+            catch (Exception)
+            {
+                fileSystem.Add(path, newDirectory);
+            }
+        }
+        private string GetDirNameFromInput(string input, string replaceItem)
+        {
+            return input.Replace(replaceItem, String.Empty).Replace(" ", String.Empty);
+        }
+        private string GetDirectoryPathFromHistory(Stack<string> history)
+        {
+            return history.Aggregate((prev, current) => prev + current);
         }
 
         private int[] SplitSupplyCommandInput(string commandString)
