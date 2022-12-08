@@ -16,12 +16,6 @@ namespace AdventOfCode2022.DailySolutions.DayEight
             XPosition = xPosition;
             YPosition = yPosition;
         }
-        public Coordinate AddToCoord(Coordinate coordinate)
-        {
-            int newXPos = this.XPosition + coordinate.XPosition;
-            int newYPos = this.YPosition + coordinate.YPosition;
-            return new Coordinate(newXPos, newYPos);
-        }
         public List<Coordinate> FindCoordsInRow(Coordinate other)
         {
             int count = Math.Abs(this.XPosition - other.XPosition);
