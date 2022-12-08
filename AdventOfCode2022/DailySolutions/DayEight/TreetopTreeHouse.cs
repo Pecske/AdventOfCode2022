@@ -68,14 +68,9 @@ namespace AdventOfCode2022.DailySolutions.DayEight
             bool found = false;
             for (int i = 0; i < edgeTrees.Count && !found; i++)
             {
-                int compareTreeValue = edgeTrees[i];
-                if (compareValue > compareTreeValue)
+                result++;
+                if (compareValue <= edgeTrees[i])
                 {
-                    result++;
-                }
-                else
-                {
-                    result++;
                     found = true;
                 }
             }
