@@ -22,16 +22,6 @@ namespace AdventOfCode2022.DailySolutions.DayEight
             int newYPos = this.YPosition + coordinate.YPosition;
             return new Coordinate(newXPos, newYPos);
         }
-        public List<Coordinate> FindBetween(Coordinate other)
-        {
-            List<Coordinate> inBetween = new List<Coordinate>() { other };
-            List<Coordinate> xCoords = Enumerable.Range(this.XPosition, other.XPosition).Select(item => new Coordinate(item, this.YPosition)).ToList();
-            List<Coordinate> yCoords = Enumerable.Range(this.YPosition, other.YPosition).Select(item => new Coordinate(this.XPosition, item)).ToList();
-            inBetween.AddRange(xCoords);
-            inBetween.AddRange(yCoords);
-
-            return inBetween;
-        }
         public List<Coordinate> FindCoordsInRow(Coordinate other)
         {
             int count = Math.Abs(this.XPosition - other.XPosition);
