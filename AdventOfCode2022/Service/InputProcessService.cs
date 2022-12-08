@@ -1,4 +1,5 @@
-﻿using AdventOfCode2022.DailySolutions.DayFive;
+﻿using AdventOfCode2022.DailySolutions.DayEight;
+using AdventOfCode2022.DailySolutions.DayFive;
 using AdventOfCode2022.DailySolutions.DayFour;
 using AdventOfCode2022.DailySolutions.DayOne;
 using AdventOfCode2022.DailySolutions.DaySeven;
@@ -145,6 +146,22 @@ namespace AdventOfCode2022.Service
                 }
             }
             return result;
+        }
+
+        public Forest GetForest(List<string> inputs)
+        {
+            Dictionary<Coordinate, int> result = new Dictionary<Coordinate, int>();
+
+            for (int i = 0; i < inputs.Count; i++)
+            {
+                string currentLine = inputs[i];
+                for (int j = 0; j < currentLine.Length; j++)
+                {
+                    string currentTree = currentLine[j].ToString();
+                    result.Add(new Coordinate(j, i), int.Parse(currentTree));
+                }
+            }
+            return new Forest(result);
         }
         private string AddNewDirectory(Dictionary<string, FileDirectory> fileSystem, Stack<string> directoryHistory, string directoryInput)
         {

@@ -15,5 +15,6 @@ namespace AdventOfCode2022.Utils
         DayFive,
         DaySix,
         DaySeven,
+        DayEight,
     }
 }

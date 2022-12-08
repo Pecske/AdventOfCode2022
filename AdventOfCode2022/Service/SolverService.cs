@@ -14,6 +14,7 @@ using AdventOfCode2022.DailySolutions.DayFour;
 using AdventOfCode2022.DailySolutions.DayFive;
 using AdventOfCode2022.DailySolutions.DaySix;
 using AdventOfCode2022.DailySolutions.DaySeven;
+using AdventOfCode2022.DailySolutions.DayEight;
 
 namespace AdventOfCode2022.Service
 {
@@ -53,6 +54,7 @@ namespace AdventOfCode2022.Service
             solutions.Add(AdventDays.DayFive, new SupplyStacks());
             solutions.Add(AdventDays.DaySix, new TuningTrouble());
             solutions.Add(AdventDays.DaySeven, new NoSpaceLeftOnDevice());
+            solutions.Add(AdventDays.DayEight, new TreetopTreeHouse());
         }
     }
 }
