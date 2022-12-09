@@ -1,12 +1,5 @@
-﻿using AdventOfCode2022.DailySolutions;
-using AdventOfCode2022.DTO;
+﻿using AdventOfCode2022.DTO;
 using AdventOfCode2022.Utils;
-using AdventOfCode2022;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AdventOfCode2022.DailySolutions.DayOne;
 using AdventOfCode2022.DailySolutions.DayTwo;
 using AdventOfCode2022.DailySolutions.DayThree;
@@ -15,12 +8,13 @@ using AdventOfCode2022.DailySolutions.DayFive;
 using AdventOfCode2022.DailySolutions.DaySix;
 using AdventOfCode2022.DailySolutions.DaySeven;
 using AdventOfCode2022.DailySolutions.DayEight;
+using AdventOfCode2022.DailySolutions.DayNine;
 
 namespace AdventOfCode2022.Service
 {
     public class SolverService
     {
-        private static SolverService instance;
+        private static SolverService? instance;
 
         public static SolverService GetInstance(string inputLocation)
         {
@@ -38,6 +32,7 @@ namespace AdventOfCode2022.Service
         private SolverService(string inputLocation)
         {
             fileHandler = new FileHandler(inputLocation);
+            solutions = new Dictionary<AdventDays, ISolver>();
             InitSolutions();
         }
         public AdventSolution<object> GetAdventSolution(AdventDays advent)
@@ -46,7 +41,6 @@ namespace AdventOfCode2022.Service
         }
         private void InitSolutions()
         {
-            solutions = new Dictionary<AdventDays, ISolver>();
             solutions.Add(AdventDays.DayOne, new CalorieCounting());
             solutions.Add(AdventDays.DayTwo, new RockPaperScissors());
             solutions.Add(AdventDays.DayThree, new RucksackReorganization());
@@ -55,6 +49,7 @@ namespace AdventOfCode2022.Service
             solutions.Add(AdventDays.DaySix, new TuningTrouble());
             solutions.Add(AdventDays.DaySeven, new NoSpaceLeftOnDevice());
             solutions.Add(AdventDays.DayEight, new TreetopTreeHouse());
+            solutions.Add(AdventDays.DayNine, new RopeBridge());
         }
     }
 }

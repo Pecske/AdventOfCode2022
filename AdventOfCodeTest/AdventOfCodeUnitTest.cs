@@ -71,5 +71,13 @@ namespace AdventOfCodeTest
             Assert.AreEqual(21, solution.PartOne);
             Assert.AreEqual(8, solution.PartTwo);
         }
+        [TestMethod]
+        public void TestDayNineExampleSolution()
+        {
+            AdventSolution<object> solution = this.solverService.GetAdventSolution(AdventDays.DayNine);
+            Assert.AreEqual(13, solution.PartOne);
+            Assert.AreEqual(1, solution.PartTwo);
+            //Assert.AreEqual(36, solution.PartTwo);
+        }
     }
 }

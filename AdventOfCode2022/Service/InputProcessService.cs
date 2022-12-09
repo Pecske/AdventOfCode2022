@@ -1,6 +1,7 @@
 ﻿using AdventOfCode2022.DailySolutions.DayEight;
 using AdventOfCode2022.DailySolutions.DayFive;
 using AdventOfCode2022.DailySolutions.DayFour;
+using AdventOfCode2022.DailySolutions.DayNine;
 using AdventOfCode2022.DailySolutions.DayOne;
 using AdventOfCode2022.DailySolutions.DaySeven;
 using AdventOfCode2022.DailySolutions.DayTwo;
@@ -18,6 +19,7 @@ namespace AdventOfCode2022.Service
         private static InputProcessService instance;
         public static InputProcessService Instance { get { if (instance == null) { instance = new InputProcessService(); } return instance; } }
 
+        #region PUBLIC METHODS
         public List<Elf> GetElves(List<string> inputs)
         {
             List<Elf> elves = new List<Elf>();
@@ -44,7 +46,6 @@ namespace AdventOfCode2022.Service
             }
             return elves;
         }
-
         public List<RPS> GetRPSs(List<string> inputs)
         {
             List<RPS> rpsList = new List<RPS>();
@@ -113,7 +114,6 @@ namespace AdventOfCode2022.Service
             }
             return new Crate(crateContainer, commands);
         }
-
         public Dictionary<string, FileDirectory> GetFileSystem(List<string> inputs)
         {
             Dictionary<string, FileDirectory> result = new Dictionary<string, FileDirectory>();
@@ -147,7 +147,6 @@ namespace AdventOfCode2022.Service
             }
             return result;
         }
-
         public Forest GetForest(List<string> inputs)
         {
             Dictionary<Coordinate, int> result = new Dictionary<Coordinate, int>();
@@ -163,6 +162,24 @@ namespace AdventOfCode2022.Service
             }
             return new Forest(result);
         }
+        public List<MovementCommand> GetMovementCommands(List<string> inputs)
+        {
+            List<MovementCommand> result = new List<MovementCommand>();
+            foreach (var item in inputs)
+            {
+                string[] commandInput = item.Split(" ");
+                Direction direction;
+                int moveAmount;
+                if (Enum.TryParse(commandInput[0], out direction)
+                    && int.TryParse(commandInput[1], out moveAmount))
+                {
+                    result.Add(new MovementCommand(direction, moveAmount));
+                }
+            }
+            return result;
+        }
+        #endregion
+        #region PRIVATE METHODS
         private string AddNewDirectory(Dictionary<string, FileDirectory> fileSystem, Stack<string> directoryHistory, string directoryInput)
         {
             string dirName = GetDirNameFromInput(directoryInput, CommonConstant.DaySeven.ChangeDirectory);
@@ -210,5 +227,6 @@ namespace AdventOfCode2022.Service
             int[] result = { int.Parse(fromSplit[0]), int.Parse(toSplit[0]), int.Parse(toSplit[1]) };
             return result;
         }
+        #endregion
     }
 }
